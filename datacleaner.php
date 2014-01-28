@@ -1,8 +1,8 @@
 <?php
 //GLOBAL | INPUT VARIABLES
-$filename = "/Volumes/DEVOID42/Professional/Kajuns/KaraokeScript/kajuns.csv"; //file to clean and overwrite with csv 
+$filename = "kajuns.csv"; //file to clean and overwrite with csv 
 
-$filenamejson = "/Volumes/DEVOID42/Professional/Kajuns/KaraokeScript/kajuns.json"; //file to put JSON data
+$filenamejson = "kajuns.json"; //file to put JSON data
 
 $newcsvarray = array(); 
 //$newjsonarray = array(); (holds array of JSON key:value pairs not used)
