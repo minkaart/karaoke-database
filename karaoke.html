@@ -5,22 +5,286 @@
 
 jQuery(function($) {
 
-$(window).load( function() {
-var JSONlocation = "test.json"; 
+var JSONlocation = ""; 
+var searchByTitle = true; 
 
-$.getJSON(JSONlocation, function(data) {
-	//var songs = [];
-  $.each(data, function(song) {
-    var output = "<tr><td>" + song.Title + "</td><td>" + song.Artist + "</td></tr>";
-    console.log('Title: '+song.Title);
-    console.log('Artist: '+song.Artist);
-    $(output).appendTo("#songs");
-  });
+$("#artist").click(function() {
+searchByTitle = false;
 });
 
+$("#title").click(function() {
+searchByTitle = true;
 });
 
+function popuTable(clicked){
+	$("#songs").empty();
+	JSONlocation = "http://localhost/~minka/test/json/"+clicked+".json";
+	console.log("gettingJSON from:"+JSONlocation);
+	$.getJSON(JSONlocation, function(data) {
+		console.log("got JSON");
+  		$.each(data, function(key, val) {
+  			var song = val; 
+    		console.log("reading");
+    		$("<tr><td>" + val.Title + "</td><td>" + val.Artist + "</td></tr>").appendTo("#songs");
+  		});
+  	});
+}
+
+$("#a").click(function(){
+	if(searchByTitle){
+	console.log("search by title");
+	popuTable("a");
+	}
+	else {
+	popuTable('artista');
+	}
 });
+
+$("#b").click(function(){
+	if(searchByTitle){
+	popuTable('b');
+	}
+	else {
+	popuTable('artistb');
+	}
+});
+
+$("#c").click(function(){
+	if(searchByTitle){
+	popuTable('c');
+	}
+	else {
+	popuTable('artistc');
+	}
+});
+
+$("#d").click(function(){
+	if(searchByTitle){
+	popuTable('d');
+	}
+	else {
+	popuTable('artistd');
+	}
+});
+
+$("#e").click(function(){
+	if(searchByTitle){
+	popuTable('e');
+	}
+	else {
+	popuTable('artiste');
+	}
+});
+
+$("#f").click(function(){
+	if(searchByTitle){
+	popuTable('f');
+	}
+	else {
+	popuTable('artistf');
+	}
+});
+
+$("#g").click(function(){
+	if(searchByTitle){
+	popuTable('g');
+	}
+	else {
+	popuTable('artistg');
+	}
+});
+
+$("#h").click(function(){
+	if(searchByTitle){
+	popuTable('h');
+	}
+	else {
+	popuTable('artisth');
+	}
+});
+
+$("#i").click(function(){
+	if(searchByTitle){
+	popuTable('i');
+	}
+	else {
+	popuTable('artisti');
+	}
+});
+
+$("#j").click(function(){
+	if(searchByTitle){
+	popuTable('j');
+	}
+	else {
+	popuTable('artistj');
+	}
+});
+
+$("#k").click(function(){
+	if(searchByTitle){
+	popuTable('k');
+	}
+	else {
+	popuTable('artistk');
+	}
+});
+
+$("#l").click(function(){
+	if(searchByTitle){
+	popuTable('l');
+	}
+	else {
+	popuTable('artistl');
+	}
+});
+
+$("#m").click(function(){
+	if(searchByTitle){
+	popuTable('m');
+	}
+	else {
+	popuTable('artistm');
+	}
+});
+
+$("#n").click(function(){
+	if(searchByTitle){
+	popuTable('n');
+	}
+	else {
+	popuTable('artistn');
+	}
+});
+
+$("#o").click(function(){
+	if(searchByTitle){
+	popuTable('o');
+	}
+	else {
+	popuTable('artisto');
+	}
+});
+
+$("#p").click(function(){
+	if(searchByTitle){
+	popuTable('p');
+	}
+	else {
+	popuTable('artistp');
+	}
+});
+
+$("#q").click(function(){
+	if(searchByTitle){
+	popuTable('q');
+	}
+	else {
+	popuTable('artistq');
+	}
+});
+
+$("#q").click(function(){
+	if(searchByTitle){
+	popuTable('q');
+	}
+	else {
+	popuTable('artistq');
+	}
+});
+
+$("#r").click(function(){
+	if(searchByTitle){
+	popuTable('r');
+	}
+	else {
+	popuTable('artistr');
+	}
+});
+
+$("#s").click(function(){
+	if(searchByTitle){
+	popuTable('s');
+	}
+	else {
+	popuTable('artists');
+	}
+});
+
+$("#t").click(function(){
+	if(searchByTitle){
+	popuTable('t');
+	}
+	else {
+	popuTable('artistt');
+	}
+});
+
+$("#u").click(function(){
+	if(searchByTitle){
+	popuTable('u');
+	}
+	else {
+	popuTable('artistu');
+	}
+});
+
+$("#v").click(function(){
+	if(searchByTitle){
+	popuTable('v');
+	}
+	else {
+	popuTable('artistv');
+	}
+});
+
+$("#w").click(function(){
+	if(searchByTitle){
+	popuTable('w');
+	}
+	else {
+	popuTable('artistw');
+	}
+});
+
+$("#x").click(function(){
+	if(searchByTitle){
+	popuTable('x');
+	}
+	else {
+	popuTable('artistx');
+	}
+});
+
+$("#y").click(function(){
+	if(searchByTitle){
+	popuTable('y');
+	}
+	else {
+	popuTable('artisty');
+	}
+});
+
+$("#z").click(function(){
+	if(searchByTitle){
+	popuTable('z');
+	}
+	else {
+	popuTable('artistz');
+	}
+});
+
+$("#other").click(function(){
+	if(searchByTitle){
+	popuTable('other');
+	}
+	else {
+	popuTable('artistother');
+	}
+});
+  	
+});
+
 </script>
 </head>
 <body>

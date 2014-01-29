@@ -63,8 +63,8 @@ function chunkwriter($data, $keys)
 	$length = count($data); 
 	for($i=0; $i<$length; $i++)
 	{
-		$location = ("/Users/minka/Sites/test/csv/".$keys[$i].'.csv');
-		$JSONlocation = ("/Users/minka/Sites/test/json/".$keys[$i].'.json');
+		$location = (".../csv/".$keys[$i].'.csv');
+		$JSONlocation = (".../json/".$keys[$i].'.json');
 		$chunk = array();
 		$chunk = $data[$i];
 		filewriter($chunk, $location);
@@ -97,11 +97,14 @@ function filewriterJSON($data, $location)
 	if (($handle = fopen($location, "w")) != FALSE)
 	{
 	fwrite($handle, '[');
-		foreach($data as $i)
+	$dataCount = count($data);
+		foreach($data as $index => $i)
 		{
 			$jsonindarray = JSONmaker($i);
 			fwrite($handle, json_encode($jsonindarray));
+			if($index < $dataCount-1) {
 			fwrite($handle, ',');
+			}
 			//array_push($newjsonarray, $jsonindarray); builds $newjsonarray (not used)
 		}
 	fwrite($handle, ']');
