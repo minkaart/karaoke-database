@@ -96,12 +96,15 @@ function filewriterJSON($data, $location)
 	//following creates/writes $newcsvarray (cleaned data) to kajuns,json
 	if (($handle = fopen($location, "w")) != FALSE)
 	{
+	$objectCount = count($data);
 	fwrite($handle, '[');
-		foreach($data as $i)
+		foreach($data as $index => $i)
 		{
 			$jsonindarray = JSONmaker($i);
 			fwrite($handle, json_encode($jsonindarray));
-			fwrite($handle, ',');
+			if ($index < $objectCount - 1) {
+				fwrite($handle, ',');
+			}
 			//array_push($newjsonarray, $jsonindarray); builds $newjsonarray (not used)
 		}
 	fwrite($handle, ']');
