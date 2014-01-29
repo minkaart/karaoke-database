@@ -1,8 +1,8 @@
 <?php
 //GLOBAL | INPUT VARIABLES
-$filename = "kajuns.csv"; //file to clean and overwrite with csv 
+$filename = "/Users/minka/Sites/test/kajuns.csv"; //file to clean and overwrite with csv 
 
-$filenamejson = "kajuns.json"; //file to put JSON data
+$filenamejson = "/Users/minka/Sites/test/kajuns.json"; //file to put JSON data
 
 $newcsvarray = array(); 
 //$newjsonarray = array(); (holds array of JSON key:value pairs not used)
@@ -63,8 +63,8 @@ function chunkwriter($data, $keys)
 	$length = count($data); 
 	for($i=0; $i<$length; $i++)
 	{
-		$location = ($keys[$i].'.csv');
-		$JSONlocation = ($keys[$i].'.json');
+		$location = ("/Users/minka/Sites/test/csv/".$keys[$i].'.csv');
+		$JSONlocation = ("/Users/minka/Sites/test/json/".$keys[$i].'.json');
 		$chunk = array();
 		$chunk = $data[$i];
 		filewriter($chunk, $location);
@@ -96,12 +96,15 @@ function filewriterJSON($data, $location)
 	//following creates/writes $newcsvarray (cleaned data) to kajuns,json
 	if (($handle = fopen($location, "w")) != FALSE)
 	{
+	fwrite($handle, '[');
 		foreach($data as $i)
 		{
 			$jsonindarray = JSONmaker($i);
 			fwrite($handle, json_encode($jsonindarray));
+			fwrite($handle, ',');
 			//array_push($newjsonarray, $jsonindarray); builds $newjsonarray (not used)
 		}
+	fwrite($handle, ']');
 	}
 	else
 	{

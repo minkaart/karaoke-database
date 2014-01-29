@@ -1,0 +1,69 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script type="text/javascript">
+
+jQuery(function($) {
+
+$(window).load( function() {
+var JSONlocation = "test.json"; 
+
+$.getJSON(JSONlocation, function(data) {
+	//var songs = [];
+  $.each(data, function(song) {
+    var output = "<tr><td>" + song.Title + "</td><td>" + song.Artist + "</td></tr>";
+    console.log('Title: '+song.Title);
+    console.log('Artist: '+song.Artist);
+    $(output).appendTo("#songs");
+  });
+});
+
+});
+
+});
+</script>
+</head>
+<body>
+<table>
+<tr><td id="title">TITLE</td><td id="artist">ARTIST</td></tr>
+<tr>
+	<td colspan="2">
+		<table>
+		<tr>
+		<td id='a'>a</td>
+		<td id='b'>b</td>
+		<td id='c'>c</td>
+		<td id='d'>d</td>
+		<td id='e'>e</td>
+		<td id='f'>f</td>
+		<td id='g'>g</td>
+		<td id='h'>h</td>
+		<td id='i'>i</td>
+		<td id='j'>j</td>
+		<td id='k'>k</td>
+		<td id='l'>l</td>
+		<td id='m'>m</td>
+		<td id='n'>n</td>
+		<td id='o'>o</td>
+		<td id='p'>p</td>
+		<td id='q'>q</td>
+		<td id='r'>r</td>
+		<td id='s'>s</td>
+		<td id='t'>t</td>
+		<td id='u'>u</td>
+		<td id='v'>v</td>
+		<td id='w'>w</td>
+		<td id='x'>x</td>
+		<td id='y'>y</td>
+		<td id='z'>z</td>
+		<td id='other'>other</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<table id="songs">
+</table>
+</body>
+</html>
