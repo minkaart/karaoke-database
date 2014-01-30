@@ -18,17 +18,31 @@ searchByTitle = true;
 
 function popuTable(clicked){
 	$("#songs").empty();
-	JSONlocation = "http://localhost/~minka/test/json/"+clicked+".json";
+	JSONlocation = "http://localhost/~minka/test/json/"+clicked+".json?callback=?"; //place file path to JSON here
 	console.log("gettingJSON from:"+JSONlocation);
-	$.getJSON(JSONlocation, function(data) {
-		console.log("got JSON");
-  		$.each(data, function(key, val) {
+	$.ajax({
+		type: 'GET',
+    	url: JSONlocation,
+    	async: true,
+    	jsonp: true, 
+    	jsonpCallback: 'jsonCallback',
+    	contentType: "application/json",
+    	dataType: 'jsonp',
+    	success: function(data) {
+       		console.log("got JSON");
+       		$.each(data, function(key, val) {
   			var song = val; 
     		console.log("reading");
     		$("<tr><td>" + val.Title + "</td><td>" + val.Artist + "</td></tr>").appendTo("#songs");
   		});
-  	});
+    	},
+    	error: function() {
+       		console.log('get failed');
+    	}
+	});
 }
+
+
 
 $("#a").click(function(){
 	if(searchByTitle){

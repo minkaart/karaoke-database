@@ -63,8 +63,8 @@ function chunkwriter($data, $keys)
 	$length = count($data); 
 	for($i=0; $i<$length; $i++)
 	{
-		$location = (".../csv/".$keys[$i].'.csv');
-		$JSONlocation = (".../json/".$keys[$i].'.json');
+		$location = ("/Volumes/DEVOID42/Professional/Kajuns/KaraokeScript/karaoke-database/csv/".$keys[$i].'.csv');
+		$JSONlocation = ("/Volumes/DEVOID42/Professional/Kajuns/KaraokeScript/karaoke-database/json/".$keys[$i].'.json');
 		$chunk = array();
 		$chunk = $data[$i];
 		filewriter($chunk, $location);
@@ -96,7 +96,7 @@ function filewriterJSON($data, $location)
 	//following creates/writes $newcsvarray (cleaned data) to kajuns,json
 	if (($handle = fopen($location, "w")) != FALSE)
 	{
-	fwrite($handle, '[');
+	fwrite($handle, 'jsonCallback([');
 	$dataCount = count($data);
 		foreach($data as $index => $i)
 		{
@@ -107,7 +107,7 @@ function filewriterJSON($data, $location)
 			}
 			//array_push($newjsonarray, $jsonindarray); builds $newjsonarray (not used)
 		}
-	fwrite($handle, ']');
+	fwrite($handle, ']);');
 	}
 	else
 	{
